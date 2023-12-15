@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  linklabs-challenge-db:
+    image: bitnami/postgresql
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRESQL_USERNAME=linklabs
+      - POSTGRESQL_PASSWORD=linklabs
+      - POSTGRESQL_DATABASE=linklabs-challenge-db

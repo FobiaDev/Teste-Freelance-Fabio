@@ -1,3 +1,4 @@
+import { Optional } from '../../../../core/@types/optional'
 import { Entity } from '../../../../core/entities/entity'
 
 import { UniqueEntityID } from '../../../../core/entities/unique-entity-id'
@@ -9,6 +10,8 @@ export interface ProductProps {
   image: string
   price: Price
   score: number
+  createdAt: Date
+  updatedAt?: Date | null
 }
 
 export class Product extends Entity<ProductProps> {
@@ -20,7 +23,7 @@ export class Product extends Entity<ProductProps> {
     return this.props.image
   }
 
-  get Price() {
+  get price() {
     return this.props.price
   }
 
@@ -28,8 +31,26 @@ export class Product extends Entity<ProductProps> {
     return this.props.score
   }
 
-  static create(props: ProductProps, id?: UniqueEntityID) {
-    const product = new Product(props, id)
+  get createdAt() {
+    return this.props.createdAt
+  }
+
+  get updatedAt() {
+    return this.props.updatedAt
+  }
+
+  private touch() {
+    this.props.updatedAt = new Date()
+  }
+
+  static create(
+    props: Optional<ProductProps, 'createdAt'>,
+    id?: UniqueEntityID,
+  ) {
+    const product = new Product(
+      { ...props, createdAt: props.createdAt ?? new Date() },
+      id,
+    )
 
     return product
   }
