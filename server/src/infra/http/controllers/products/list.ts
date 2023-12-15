@@ -9,8 +9,16 @@ class ListProducts {
     const result = await fetchProductsUseCase.handle({ page: 1 })
 
     if (result.isSuccess()) {
+      const products = result.value.products.map((product) => ({
+        id: product.id.toString(),
+        title: product.title,
+        image: product.image,
+        price: product.price.toString().replace('.', ','),
+        score: product.score,
+      }))
+
       return response.status(200).json({
-        products: result.value.products,
+        products,
         total: result.value.total,
       })
     }
