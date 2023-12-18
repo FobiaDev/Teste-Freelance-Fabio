@@ -31,19 +31,19 @@ Para configurar o back-end, siga as instruções abaixo:
 
 2. **Configuração do Banco de Dados com Docker Compose:**
     - Certifique-se de ter o Docker e o Docker Compose instalados.
-    - Execute o seguinte comando para criar e configurar o banco de dados, executar as migrações e seeds:
+    - Execute o seguinte comando para criar o banco de dados:
       ```bash
       docker-compose up
       ```
+      
+3. **Verifique a baixo comandos para executar as migrações e seeds**
 
-    Isso iniciará o banco de dados e executará as migrações e seeds automaticamente.
-
-3. **Inicie o servidor:**
+4. **Inicie o servidor:**
     ```bash
     npm start
     ```
 
-4. O servidor estará disponível em [http://localhost:3333](http://localhost:3333)
+5. O servidor estará disponível em [http://localhost:3333](http://localhost:3333)
 
 ### Nota: Ambiente de Desenvolvimento
 
