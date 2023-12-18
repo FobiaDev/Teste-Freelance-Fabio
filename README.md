@@ -52,6 +52,7 @@ Para configurar o back-end, siga as instruções abaixo:
     npx prisma migrate dev
     npx prisma db seed
     ```
+- Utilize a DATABASE_URL presente no arquivo .env.example no seu arquivo .env.
 
 ## Requisitos do Sistema
 
